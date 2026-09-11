@@ -1,6 +1,6 @@
 cask "cantracer" do
-  version "1.0.4"
-  sha256 "d84e4850d4d405f083257c109dedcd8840688014f8040c2eba4a59f36030cdf6"
+  version "1.0.5"
+  sha256 "57b071ed44a380c0b45141479831cc131267827cf9e2ba166931895afac017b9"
 
   url "https://github.com/PanterSoft/CANtracer/releases/download/v#{version}/CANtracer-macos.dmg"
   name "CANtracer"
