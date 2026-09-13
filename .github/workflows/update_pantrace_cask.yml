@@ -1,0 +1,28 @@
+name: Update pantrace cask
+
+# Pantrace releases on every push to its main branch; this follows the latest
+# release so `brew upgrade --cask pantrace` picks it up within the hour.
+on:
+  schedule:
+    - cron: '17 * * * *'
+  workflow_dispatch:
+
+jobs:
+  bump:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          V=$(gh release view -R PanterSoft/Pantrace --json tagName -q .tagName | sed 's/^v//')
+          grep -q "version \"$V\"" Casks/pantrace.rb && { echo "already at $V"; exit 0; }
+          curl -fsSL -o dmg "https://github.com/PanterSoft/Pantrace/releases/download/v$V/Pantrace-macos.dmg"
+          SHA=$(sha256sum dmg | cut -d' ' -f1)
+          sed -i "s|^  version .*|  version \"$V\"|; s|^  sha256 .*|  sha256 \"$SHA\"|" Casks/pantrace.rb
+          git -c user.name=github-actions[bot] \
+              -c user.email=41898282+github-actions[bot]@users.noreply.github.com \
+              commit -m "pantrace $V" Casks/pantrace.rb
+          git push

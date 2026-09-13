@@ -11,22 +11,22 @@
 |-----------------|-----------------|------------------------------|
 | :x: | NetworkProfiles | Manage network profiles inside your Menue Bar      |
 | :white_check_mark: | rpiboot         | Boot Raspberry Pi over USB (https://github.com/raspberrypi/usbboot)  |
-| :white_check_mark: | cantracer       | CAN bus tracer with DBC decoding, macOS app cask (https://github.com/PanterSoft/CANtracer) |
+| :white_check_mark: | pantrace       | CAN bus tracer with DBC decoding, macOS app cask (https://github.com/PanterSoft/Pantrace) |
 
 
 ### Casks
 
-`cantracer` is a cask, so it needs to be trusted once before installing:
+`pantrace` is a cask, so it needs to be trusted once before installing:
 
 ```sh
-brew trust --cask pantersoft/pantersoft/cantracer
-brew install --cask cantracer
+brew trust --cask pantersoft/pantersoft/pantrace
+brew install --cask pantrace
 ```
 
 The app is ad-hoc signed rather than notarised; if macOS refuses to open it:
 
 ```sh
-xattr -dr com.apple.quarantine /Applications/CANtracer.app
+xattr -dr com.apple.quarantine /Applications/Pantrace.app
 ```
 
 ### Formula Descriptions
