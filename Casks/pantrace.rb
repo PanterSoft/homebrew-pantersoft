@@ -1,6 +1,6 @@
 cask "pantrace" do
-  version "1.0.6"
-  sha256 "a2c06e99d546f5c80ac0385298a0224acb86c81cc8170b0ffdc25a6b7c3c8795"
+  version "1.0.7"
+  sha256 "9bf4acd82d1dc74f9a12acc5678c7efac01c1c74c76c97967dd45b4880085093"
 
   url "https://github.com/PanterSoft/Pantrace/releases/download/v#{version}/Pantrace-macos.dmg"
   name "Pantrace"
